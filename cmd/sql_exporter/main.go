@@ -37,7 +37,7 @@ func usage(errmsg string) {
 }
 
 func main() {
-    const svcName = "mssqlexp service"
+    const svcName = "MSSql_Exporter"
 
     isIntSess, err := svc.IsAnInteractiveSession()
     if err != nil {
@@ -58,7 +58,7 @@ func main() {
         runService(svcName, true)
         return
     case "install":
-        err = installService(svcName, "mssqlexp service")
+        err = installService(svcName, "MSSql_Exporter")
     case "remove":
         err = removeService(svcName)
     case "start":
@@ -272,7 +272,7 @@ func runService(name string, isDebug bool) {
 
 var (
     showVersion   = flag.Bool("version", false, "Print version information.")
-    listenAddress = flag.String("web.listen-address", ":9399", "Address to listen on for web interface and telemetry.")
+    listenAddress = flag.String("web.listen-address", ":9190", "Address to listen on for web interface and telemetry.")
     metricsPath   = flag.String("web.metrics-path", "/metrics", "Path under which to expose metrics.")
     configFile    = flag.String("config.file", "sql_exporter.yml", "SQL Exporter configuration file name.")
 )
